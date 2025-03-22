@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Number Accepter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input[type="text"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Scientific Number Accepter</h1>
+        <p>Enter a number in scientific notation (e.g., 1e10, -2.5e-3):</p>
+        <input type="text" id="numberInput" placeholder="Enter a number">
+        <button onclick="checkNumber()">Submit</button>
+        <div class="message" id="message"></div>
+    </div>
+
+    <script>
+        function checkNumber() {
+            const input = document.getElementById('numberInput').value;
+            const message = document.getElementById('message');
+            const scientificNumberRegex = /^[+-]?\d+(\.\d+)?[eE][+-]?\d+$/;
+
+            if (scientificNumberRegex.test(input)) {
+                message.textContent = "Yes, it is a number";
+                message.style.color = "#4caf50";
+            } else {
+                message.textContent = "No, it is not a number";
+                message.style.color = "#ff4d4d";
+            }
+        }
+    </script>
+</body>
+</html>
